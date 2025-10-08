@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GOMoney Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+    <div class="max-w-xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">My GOMoney Wallet</h1>
+            <a href="/" class="text-sm text-blue-400 hover:underline">&larr; Back to Journey Planner</a>
+        </header>
+
+        <!-- Current Balance Display -->
+        <div class="bg-slate-800/70 rounded-lg shadow-2xl p-6 text-center mb-8">
+            <p class="text-slate-400 text-lg">Current Balance</p>
+            <p class="text-5xl font-bold text-green-400 mt-2" th:text="'₹' + ${currentBalance}">₹500.0</p>
+        </div>
+
+        <!-- Add Funds Form -->
+        <div class="bg-slate-800/70 rounded-lg shadow-2xl p-6">
+            <h2 class="text-2xl font-semibold text-center text-blue-300 mb-6">Add Funds to Wallet</h2>
+             <div th:if="${param.success}" class="bg-green-500/20 text-green-300 p-3 rounded-lg text-center mb-6">
+                Funds added successfully!
+            </div>
+            <form action="/add-funds" method="post" class="space-y-4">
+                <div>
+                    <label for="amount" class="block mb-2 text-sm font-medium text-slate-300">Amount to Add (1₹ = 1 GOMoney)</label>
+                    <input type="number" id="amount" name="amount" min="10" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 text-white" placeholder="Enter amount" required>
+                </div>
+                <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-lg py-3">Add via UPI</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

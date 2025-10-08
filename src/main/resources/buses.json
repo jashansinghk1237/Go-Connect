@@ -1,0 +1,174 @@
+[
+  {
+    "routeId": "HR-101",
+    "operator": "Haryana Roadways",
+    "busType": "Standard Express",
+    "totalSeats": 52,
+    "pricePerKm": 1.25,
+    "stops": [
+      {
+        "stopName": "Ambala City Bus Stand",
+        "arrivalTime": null,
+        "departureTime": "08:00",
+        "distanceFromStartKm": 0
+      },
+      {
+        "stopName": "Ambala Cantt Bus Stand",
+        "arrivalTime": "08:15",
+        "departureTime": "08:25",
+        "distanceFromStartKm": 8
+      },
+      {
+        "stopName": "Pipli (Kurukshetra)",
+        "arrivalTime": "09:10",
+        "departureTime": "09:15",
+        "distanceFromStartKm": 50
+      },
+      {
+        "stopName": "Karnal",
+        "arrivalTime": "09:50",
+        "departureTime": "10:00",
+        "distanceFromStartKm": 85
+      },
+      {
+        "stopName": "Panipat",
+        "arrivalTime": "10:40",
+        "departureTime": "10:50",
+        "distanceFromStartKm": 120
+      },
+      {
+        "stopName": "ISBT Kashmere Gate, Delhi",
+        "arrivalTime": "12:30",
+        "departureTime": null,
+        "distanceFromStartKm": 205
+      }
+    ]
+  },
+  {
+    "routeId": "V-202",
+    "operator": "Volvo Express",
+    "busType": "AC Volvo 2x2",
+    "totalSeats": 45,
+    "pricePerKm": 2.5,
+    "stops": [
+      {
+        "stopName": "Ambala Cantt Bus Stand",
+        "arrivalTime": null,
+        "departureTime": "10:30",
+        "distanceFromStartKm": 0
+      },
+      {
+        "stopName": "Zirakpur",
+        "arrivalTime": "11:10",
+        "departureTime": "11:15",
+        "distanceFromStartKm": 40
+      },
+      {
+        "stopName": "ISBT Sector 17, Chandigarh",
+        "arrivalTime": "11:45",
+        "departureTime": null,
+        "distanceFromStartKm": 55
+      }
+    ]
+  },
+  {
+    "routeId": "RS-305",
+    "operator": "RSRTC",
+    "busType": "AC Sleeper",
+    "totalSeats": 38,
+    "pricePerKm": 1.8,
+    "stops": [
+      {
+        "stopName": "Ambala Cantt Bus Stand",
+        "arrivalTime": null,
+        "departureTime": "21:00",
+        "distanceFromStartKm": 0
+      },
+      {
+        "stopName": "ISBT Kashmere Gate, Delhi",
+        "arrivalTime": "01:00",
+        "departureTime": "01:15",
+        "distanceFromStartKm": 205
+      },
+      {
+        "stopName": "Gurugram (IFFCO Chowk)",
+        "arrivalTime": "02:15",
+        "departureTime": "02:20",
+        "distanceFromStartKm": 235
+      },
+      {
+        "stopName": "Jaipur (Sindhi Camp)",
+        "arrivalTime": "06:30",
+        "departureTime": null,
+        "distanceFromStartKm": 480
+      }
+    ]
+  },
+  {
+    "routeId": "HR-401",
+    "operator": "Haryana Roadways",
+    "busType": "Standard",
+    "totalSeats": 52,
+    "pricePerKm": 1.2,
+    "stops": [
+      {
+        "stopName": "Ambala City Bus Stand",
+        "arrivalTime": null,
+        "departureTime": "14:00",
+        "distanceFromStartKm": 0
+      },
+      {
+        "stopName": "Saha",
+        "arrivalTime": "14:40",
+        "departureTime": "14:45",
+        "distanceFromStartKm": 25
+      },
+      {
+        "stopName": "Yamunanagar Bus Stand",
+        "arrivalTime": "15:30",
+        "departureTime": null,
+        "distanceFromStartKm": 55
+      }
+    ]
+  },
+  {
+    "routeId": "HRTC-550",
+    "operator": "Himachal Roadways",
+    "busType": "Non-AC 2x2",
+    "totalSeats": 42,
+    "pricePerKm": 1.9,
+    "stops": [
+      {
+        "stopName": "Ambala Cantt Bus Stand",
+        "arrivalTime": null,
+        "departureTime": "07:00",
+        "distanceFromStartKm": 0
+      },
+      {
+        "stopName": "ISBT Sector 43, Chandigarh",
+        "arrivalTime": "08:00",
+        "departureTime": "08:15",
+        "distanceFromStartKm": 50
+      },
+      {
+        "stopName": "Kalka",
+        "arrivalTime": "09:00",
+        "departureTime": "09:05",
+        "distanceFromStartKm": 75
+      },
+      {
+        "stopName": "Solan",
+        "arrivalTime": "10:30",
+        "departureTime": "10:40",
+        "distanceFromStartKm": 120
+      },
+      {
+        "stopName": "ISBT Tutikandi, Shimla",
+        "arrivalTime": "12:30",
+        "departureTime": null,
+        "distanceFromStartKm": 165
+      }
+    ]
+  }
+]
+

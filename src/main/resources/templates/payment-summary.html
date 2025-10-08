@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">Payment Summary</h1>
+            <p class="text-blue-200 mt-2" th:text="${plan.startLocation} + ' to ' + ${plan.finalDestination}"></p>
+        </header>
+
+        <!-- Journey Details -->
+        <div class="bg-slate-800/70 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-blue-300 mb-4">Journey Details</h2>
+            <div th:each="leg : ${plan.legs}" class="mb-4 p-4 bg-slate-700/50 rounded-lg">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="font-bold" th:text="'Leg ' + ${leg.legNumber} + ': ' + ${leg.transportType}"></h3>
+                        <p class="text-sm text-slate-400" th:text="${leg.from} + ' → ' + ${leg.to}"></p>
+                    </div>
+                    <span class="font-bold text-blue-300" th:text="'₹' + ${leg.price}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Passenger Details -->
+        <div class="bg-slate-800/70 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-blue-300 mb-4">Passengers</h2>
+            <div th:each="passenger, iterStat : ${passengers}" class="mb-2 p-3 bg-slate-700/50 rounded-lg">
+                <span class="font-bold" th:text="${iterStat.index + 1} + '. ' + ${passenger.name}"></span>
+                <span class="text-slate-400 ml-2" th:text="${passenger.phone}"></span>
+            </div>
+        </div>
+
+        <!-- Cost Breakdown -->
+        <div class="bg-slate-800/70 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-blue-300 mb-4">Cost Breakdown</h2>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span>Base Cost per Person:</span>
+                    <span th:text="'₹' + ${baseCost}"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Number of Passengers:</span>
+                    <span th:text="${passengers.size()}"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span>Subtotal:</span>
+                    <span th:text="'₹' + ${subtotal}"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span>GST (18%):</span>
+                    <span th:text="'₹' + ${gst}"></span>
+                </div>
+                <hr class="border-slate-600">
+                <div class="flex justify-between text-2xl font-bold text-blue-300">
+                    <span>Total Amount:</span>
+                    <span th:text="'₹' + ${totalCost}"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="bg-slate-800/70 rounded-lg p-6">
+            <div class="text-center mb-6">
+                <p class="text-slate-400 text-lg">Your GOMoney Balance</p>
+                <p class="text-3xl font-semibold text-green-400" th:text="'₹' + ${currentBalance}"></p>
+            </div>
+            
+            <!-- If user has enough money -->
+            <div th:if="${currentBalance >= totalCost}">
+                <form action="/process-booking" method="post">
+                    <!-- Use pre-serialized JSON injected by the controller -->
+                    <input type="hidden" name="journeyPlanJson" th:value="${planJson}">
+                    <div th:each="passenger, iterStat : ${passengers}">
+                        <input type="hidden" th:name="'passengers[' + ${iterStat.index} + '].name'" th:value="${passenger.name}">
+                        <input type="hidden" th:name="'passengers[' + ${iterStat.index} + '].phone'" th:value="${passenger.phone}">
+                    </div>
+                    <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-700 font-bold rounded-lg py-3 text-lg">Pay & Book Now</button>
+                </form>
+            </div>
+            
+            <!-- If user has insufficient funds -->
+            <div th:if="${currentBalance < totalCost}" class="text-center">
+                <p class="text-red-400 font-semibold text-lg">Insufficient Funds in Wallet</p>
+                <a href="/wallet" class="mt-4 inline-block w-full text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-lg py-3 text-lg">Add Funds to Wallet</a>
+            </div>
+            
+            <a href="/" class="block w-full text-center text-slate-300 bg-slate-700/50 hover:bg-slate-700 font-bold rounded-lg py-3 mt-4">Cancel</a>
+        </div>
+    </div>
+</body>
+</html>

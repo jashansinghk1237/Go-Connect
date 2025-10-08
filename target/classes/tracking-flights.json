@@ -1,0 +1,15 @@
+[
+  {
+    "id": "F-AI101",
+    "airline": "Air India",
+    "status": "On Time",
+    "currentInfo": "Cruising at 38,000 ft",
+    "origin": "Delhi (DEL)",
+    "destination": "New York (JFK)",
+    "eta": "05:00",
+    "schedule": [
+      { "location": "Delhi (DEL)", "scheduledTime": "17:00", "estimatedTime": "17:00", "status": "Departed" },
+      { "location": "New York (JFK)", "scheduledTime": "05:00", "estimatedTime": "05:00", "status": "Upcoming" }
+    ]
+  }
+]

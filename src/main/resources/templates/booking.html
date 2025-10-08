@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+
+    <div class="max-w-2xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300" th:text="${cab.driverName} + ' - ' + ${cab.cabType}">Driver Name - Sedan</h1>
+            <p class="text-blue-200 mt-2" th:text="${cab.licensePlate}">HR01-AB-1234</p>
+        </header>
+
+        <div class="bg-slate-800/70 rounded-lg shadow-lg p-6">
+            <!-- Ride Details Section -->
+            <div class="mb-6">
+                <h2 class="text-2xl font-semibold text-blue-300 mb-4 border-b border-slate-700 pb-2">Ride Details</h2>
+                <div class="space-y-3 text-lg">
+                    <p><strong>Driver Contact:</strong> <span class="text-slate-300" th:text="${cab.driverPhoneNumber}">9876543210</span></p>
+                    <p><strong>Current Location:</strong> <span class="text-slate-300" th:text="${cab.currentLocation}">Model Town, Ambala</span></p>
+                    <p><strong>Destination:</strong> <span class="text-slate-300" th:text="${cab.destination}">Sector 17, Chandigarh</span></p>
+                    <p><strong>Seats Available:</strong> <span class="text-slate-300" th:text="${cab.seatsAvailable} + ' / ' + ${cab.totalSeats}">2 / 4</span></p>
+                </div>
+            </div>
+
+            <!-- Booking Form Section -->
+            <div>
+                <h2 class="text-2xl font-semibold text-blue-300 mb-4 border-b border-slate-700 pb-2">Booking Form</h2>
+                <form action="#" method="post" class="space-y-4">
+                    <div>
+                        <label for="userName" class="block mb-2 text-sm font-medium text-slate-300">Your Name</label>
+                        <input type="text" id="userName" name="userName" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-2.5 text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label for="passengers" class="block mb-2 text-sm font-medium text-slate-300">Number of Passengers</label>
+                        <input type="number" id="passengers" name="passengers" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-2.5 text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none" th:max="${cab.seatsAvailable}" min="1" placeholder="1" required>
+                    </div>
+                    <fieldset>
+                        <legend class="block mb-2 text-sm font-medium text-slate-300">Payment Method</legend>
+                        <div class="flex items-center gap-x-6">
+                            <div class="flex items-center">
+                                <input id="pay-cash" name="paymentMethod" type="radio" value="Cash" class="h-4 w-4 border-slate-500 text-blue-600 focus:ring-blue-600" checked>
+                                <label for="pay-cash" class="ml-2 block text-sm font-medium leading-6 text-slate-300">Cash</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="pay-upi" name="paymentMethod" type="radio" value="UPI" class="h-4 w-4 border-slate-500 text-blue-600 focus:ring-blue-600">
+                                <label for="pay-upi" class="ml-2 block text-sm font-medium leading-6 text-slate-300">UPI</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="pt-4 flex items-center gap-4">
+                        <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Book Now</button>
+                        <a href="/cabs?location=Ambala" class="w-full text-center px-5 py-2.5 text-sm font-medium text-slate-300 bg-slate-700/50 rounded-lg hover:bg-slate-700">Go Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

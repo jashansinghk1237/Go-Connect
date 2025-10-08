@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Journey Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+
+    <div class="max-w-3xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">Your Journey Plan</h1>
+            <p class="text-blue-200 mt-2" th:text="${plan.startLocation} + ' to ' + ${plan.finalDestination}"></p>
+        </header>
+
+        <!-- Journey Legs -->
+        <div class="space-y-6">
+            <div th:each="leg : ${plan.legs}" class="bg-slate-800/70 rounded-lg shadow-lg p-5">
+                <div class="flex items-center">
+                    <!-- Icon based on transport type -->
+                    <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                         <span th:if="${leg.transportType == 'Cab'}" class="text-2xl">🚕</span>
+                         <span th:if="${leg.transportType == 'Bus'}" class="text-2xl">🚌</span>
+                         <span th:if="${leg.transportType == 'Train'}" class="text-2xl">🚆</span>
+                         <span th:if="${leg.transportType == 'Flight'}" class="text-2xl">✈️</span>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="text-xl font-bold text-blue-300" th:text="'Leg ' + ${leg.legNumber} + ': ' + ${leg.transportType}"></h3>
+                        <p class="text-sm text-slate-400" th:text="${leg.details}"></p>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-slate-700 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm">From: <span class="font-semibold" th:text="${leg.from}"></span></p>
+                        <p class="text-sm">To: <span class="font-semibold" th:text="${leg.to}"></span></p>
+                    </div>
+                    <p class="text-lg font-bold text-blue-300" th:text="'₹' + ${leg.price}"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Cost and Actions -->
+        <div class="mt-8 bg-slate-800 rounded-lg p-5 text-center">
+            <h2 class="text-2xl font-bold">Total Estimated Cost: <span class="text-blue-300" th:text="'₹' + ${plan.totalCost}"></span></h2>
+            <div class="mt-6 flex gap-4">
+                <form th:action="@{/passenger-details}" method="post" class="w-full">
+                    <input type="hidden" name="journeyPlanJson" th:value="${planJson}">
+                    <input type="hidden" name="baseCost" th:value="${plan.totalCost}">
+                    <input type="hidden" name="startLocation" th:value="${plan.startLocation}">
+                    <input type="hidden" name="finalDestination" th:value="${plan.finalDestination}">
+                    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-lg py-3">Confirm & Book All</button>
+                </form>
+                <a href="/" class="w-full text-center text-slate-300 bg-slate-700 hover:bg-slate-600 font-bold rounded-lg py-3">Plan a New Journey</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

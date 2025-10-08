@@ -1,0 +1,68 @@
+[
+  {
+    "journeyId": "JRN-101",
+    "passengerName": "Parjot Singh",
+    "passengerPhone": "9876512345",
+    "overallStartLocation": "Ambala, India",
+    "overallFinalDestination": "New York, USA",
+    "totalJourneyCost": 95550.0,
+    "status": "PLANNED",
+    "journeyLegs": [
+      {
+        "legNumber": 1,
+        "transportType": "Cab",
+        "from": "User's Home, Ambala",
+        "to": "Ambala Cantt Railway Station",
+        "startTimeUTC": "2025-10-20T08:00:00Z",
+        "endTimeUTC": "2025-10-20T08:30:00Z",
+        "status": "PENDING",
+        "details": {
+          "cabId": 4,
+          "driverName": "Deepak Verma"
+        }
+      },
+      {
+        "legNumber": 2,
+        "transportType": "Train",
+        "from": "Ambala Cantt Railway Station",
+        "to": "New Delhi Railway Station (NDLS)",
+        "startTimeUTC": "2025-10-20T09:30:00Z",
+        "endTimeUTC": "2025-10-20T12:00:00Z",
+        "status": "PENDING",
+        "details": {
+          "trainNumber": "12014 - Shatabdi Express",
+          "coach": "C8",
+          "seat": "45"
+        }
+      },
+      {
+        "legNumber": 3,
+        "transportType": "Cab",
+        "from": "New Delhi Railway Station (NDLS)",
+        "to": "Indira Gandhi International Airport (DEL)",
+        "startTimeUTC": "2025-10-20T12:30:00Z",
+        "endTimeUTC": "2025-10-20T13:30:00Z",
+        "status": "PENDING",
+        "details": {
+          "cabId": 15,
+          "driverName": "Aarav Sharma"
+        }
+      },
+      {
+        "legNumber": 4,
+        "transportType": "Flight",
+        "from": "Indira Gandhi International Airport (DEL)",
+        "to": "John F. Kennedy International Airport (JFK)",
+        "startTimeUTC": "2025-10-20T17:00:00Z",
+        "endTimeUTC": "2025-10-21T05:00:00Z",
+        "status": "PENDING",
+        "details": {
+          "flightNumber": "AI-101",
+          "airline": "Air India",
+          "gate": "D22",
+          "seat": "34A"
+        }
+      }
+    ]
+  }
+]

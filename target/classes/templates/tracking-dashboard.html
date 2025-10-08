@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoConnect - Live Tracking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans flex items-center justify-center p-4">
+
+    <div class="max-w-xl w-full mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">Live Tracking</h1>
+            <p class="text-blue-200 mt-2">Track your Cab, Bus, Train, or Flight in real-time.</p>
+            <a href="/" class="text-sm text-blue-400 hover:underline mt-4 inline-block">&larr; Back to Journey Planner</a>
+        </header>
+
+        <div class="bg-slate-800/70 rounded-lg shadow-2xl p-6 sm:p-8">
+            <form action="/track" method="post" class="space-y-4">
+                 <div th:if="${error}" class="bg-red-500/20 text-red-300 p-3 rounded-lg text-center">
+                    <p th:text="${error}">Could not find tracking information.</p>
+                </div>
+                <div>
+                    <label for="trackingId" class="block mb-2 text-sm font-medium text-slate-300">Enter Vehicle/Flight ID</label>
+                    <input type="text" id="trackingId" name="trackingId" class="w-full bg-slate-700/50 border border-slate-600 rounded-lg p-3 text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g., AI-101, 12014, B-101, C-4" required>
+                    <p class="text-xs text-slate-500 mt-2">Use prefixes: Flight (AI-), Train (number), Bus (B-), Cab (C-)</p>
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-lg text-lg px-5 py-3 text-center">Track</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

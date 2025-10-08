@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete UPI Payment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans flex items-center justify-center p-4">
+    <div class="max-w-sm w-full mx-auto bg-slate-800/70 rounded-lg shadow-2xl p-8 text-center">
+        <h1 class="text-3xl font-bold text-blue-300">UPI Payment</h1>
+        <p class="text-slate-400 mt-2">Scan the QR code with your UPI app</p>
+
+        <div class="my-8">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=goconnect@okhdfcbank" alt="UPI QR Code" class="mx-auto rounded-lg border-4 border-slate-600">
+        </div>
+
+        <div class="text-lg">
+            <p>Amount to Pay:</p>
+            <p class="text-4xl font-bold text-blue-300 my-2" th:text="'₹' + ${totalCost}">₹550.0</p>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-4">
+            <a th:href="${successUrl ?: '/booking-confirmed?journeySummary=' + journeySummary}" class="w-full text-white bg-green-600 hover:bg-green-700 font-bold rounded-lg py-3">Simulate Successful Payment</a>
+            <a href="/" class="w-full text-center text-slate-300 bg-slate-700 hover:bg-slate-600 font-bold rounded-lg py-3">Cancel Payment</a>
+        </div>
+    </div>
+</body>
+</html>
+

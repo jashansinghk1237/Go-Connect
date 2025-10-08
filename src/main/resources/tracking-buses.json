@@ -1,0 +1,76 @@
+[
+  {
+    "id": "B-101",
+    "operator": "Haryana Roadways",
+    "status": "On Time",
+    "currentInfo": "Crossing Karnal Lake",
+    "origin": "Ambala",
+    "destination": "Delhi",
+    "eta": "12:30",
+    "schedule": [
+      { "location": "Ambala City Bus Stand", "scheduledTime": "08:00", "estimatedTime": "08:00", "status": "Departed" },
+      { "location": "Karnal", "scheduledTime": "09:50", "estimatedTime": "09:50", "status": "Arrived" },
+      { "location": "Panipat", "scheduledTime": "10:40", "estimatedTime": "10:40", "status": "Upcoming" },
+      { "location": "ISBT Kashmere Gate, Delhi", "scheduledTime": "12:30", "estimatedTime": "12:30", "status": "Upcoming" }
+    ]
+  },
+  {
+    "id": "B-202",
+    "operator": "Punjab Roadways",
+    "status": "Delayed 20 min",
+    "currentInfo": "Departed from Rajpura",
+    "origin": "Ambala",
+    "destination": "Ludhiana",
+    "eta": "15:20",
+    "schedule": [
+      { "location": "Ambala Cantt", "scheduledTime": "13:00", "estimatedTime": "13:00", "status": "Departed" },
+      { "location": "Rajpura", "scheduledTime": "13:30", "estimatedTime": "13:50", "status": "Departed" },
+      { "location": "Sirhind", "scheduledTime": "14:00", "estimatedTime": "14:20", "status": "Upcoming" },
+      { "location": "Ludhiana", "scheduledTime": "15:00", "estimatedTime": "15:20", "status": "Upcoming" }
+    ]
+  },
+  {
+    "id": "B-305",
+    "operator": "Volvo Express",
+    "status": "On Time",
+    "currentInfo": "Approaching Zirakpur Flyover",
+    "origin": "Ambala",
+    "destination": "Chandigarh",
+    "eta": "11:45",
+    "schedule": [
+      { "location": "Ambala Cantt", "scheduledTime": "10:30", "estimatedTime": "10:30", "status": "Departed" },
+      { "location": "Zirakpur", "scheduledTime": "11:10", "estimatedTime": "11:10", "status": "Upcoming" },
+      { "location": "ISBT Sector 17, Chandigarh", "scheduledTime": "11:45", "estimatedTime": "11:45", "status": "Upcoming" }
+    ]
+  },
+  {
+    "id": "B-401",
+    "operator": "Haryana Roadways",
+    "status": "On Time",
+    "currentInfo": "Near Saha",
+    "origin": "Ambala",
+    "destination": "Yamunanagar",
+    "eta": "15:30",
+    "schedule": [
+      { "location": "Ambala City Bus Stand", "scheduledTime": "14:00", "estimatedTime": "14:00", "status": "Departed" },
+      { "location": "Saha", "scheduledTime": "14:40", "estimatedTime": "14:40", "status": "Upcoming" },
+      { "location": "Yamunanagar Bus Stand", "scheduledTime": "15:30", "estimatedTime": "15:30", "status": "Upcoming" }
+    ]
+  },
+  {
+    "id": "B-550",
+    "operator": "Himachal Roadways",
+    "status": "Arrived",
+    "currentInfo": "At ISBT Tutikandi, Shimla",
+    "origin": "Ambala",
+    "destination": "Shimla",
+    "eta": "12:30",
+    "schedule": [
+      { "location": "Ambala Cantt", "scheduledTime": "07:00", "estimatedTime": "07:00", "status": "Departed" },
+      { "location": "Chandigarh", "scheduledTime": "08:15", "estimatedTime": "08:15", "status": "Departed" },
+      { "location": "Solan", "scheduledTime": "10:30", "estimatedTime": "10:30", "status": "Departed" },
+      { "location": "ISBT Tutikandi, Shimla", "scheduledTime": "12:30", "estimatedTime": "12:30", "status": "Arrived" }
+    ]
+  }
+]
+

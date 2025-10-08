@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">Passenger Details</h1>
+            <p class="text-blue-200 mt-2">Add passengers for your journey</p>
+        </header>
+
+        <!-- Journey Summary -->
+        <div class="bg-slate-800/70 rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-blue-300 mb-4">Journey Summary</h2>
+            <div id="journeySummary" class="text-slate-300"></div>
+        </div>
+
+        <!-- Passenger Form -->
+        <form id="passengerForm" th:action="@{/process-passengers}" method="post" class="space-y-6">
+            <input type="hidden" name="journeyPlanJson" th:value="${journeyPlanJson}">
+            <input type="hidden" id="baseCostInput" name="baseCostFromServer" th:value="${baseCost}">
+            <input type="hidden" id="startLocationInput" name="startLocationFromServer" th:value="${plan != null ? plan.startLocation : null}">
+            <input type="hidden" id="finalDestinationInput" name="finalDestinationFromServer" th:value="${plan != null ? plan.finalDestination : null}">
+            
+            <!-- Passengers Container -->
+            <div id="passengersContainer" class="space-y-4">
+                <!-- Default passenger (always present) -->
+                <div class="passenger-card bg-slate-800/70 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-blue-300 mb-4">Passenger 1</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                            <input type="text" name="passengers[0].name" required 
+                                   class="w-full px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Phone Number</label>
+                            <input type="tel" name="passengers[0].phone" required 
+                                   class="w-full px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Passenger Button -->
+            <div class="text-center">
+                <button type="button" id="addPassengerBtn" 
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+                    + Add Another Passenger
+                </button>
+            </div>
+
+            <!-- Cost Summary -->
+            <div class="bg-slate-800 rounded-lg p-6">
+                <h3 class="text-xl font-bold text-blue-300 mb-4">Cost Summary</h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <span>Base Cost:</span>
+                        <span id="baseCost">₹0</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Number of Passengers:</span>
+                        <span id="passengerCount">1</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹0</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-bold">
+                        <span>GST (18%):</span>
+                        <span id="gst">₹0</span>
+                    </div>
+                    <hr class="border-slate-600">
+                    <div class="flex justify-between text-2xl font-bold text-blue-300">
+                        <span>Total Amount:</span>
+                        <span id="totalAmount">₹0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex gap-4">
+                <button type="submit" 
+                        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
+                    Proceed to Payment
+                </button>
+                <a href="/" 
+                   class="flex-1 text-center bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-6 rounded-lg">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let passengerCount = 1;
+        let baseCost = 0;
+        
+        // Parse journey plan from hidden input
+        const journeyPlanJson = document.querySelector('input[name="journeyPlanJson"]').value;
+        try {
+            const journeyPlan = JSON.parse(journeyPlanJson);
+            baseCost = journeyPlan.totalCost;
+        } catch (e) {
+            console.error('Error parsing journey plan:', e);
+            // fallback to hidden baseCost if server supplied it
+            const baseFromServer = document.getElementById('baseCostInput')?.value;
+            baseCost = baseFromServer ? parseFloat(baseFromServer) : 500;
+        }
+        
+        // Display journey summary
+        try {
+            const journeyPlan = JSON.parse(journeyPlanJson);
+            document.getElementById('journeySummary').innerHTML = `
+                <p><strong>From:</strong> ${journeyPlan.startLocation}</p>
+                <p><strong>To:</strong> ${journeyPlan.finalDestination}</p>
+                <p><strong>Base Cost:</strong> ₹${baseCost}</p>
+            `;
+        } catch (e) {
+            const startLoc = document.getElementById('startLocationInput')?.value || '';
+            const endLoc = document.getElementById('finalDestinationInput')?.value || '';
+            document.getElementById('journeySummary').innerHTML = `
+                <p><strong>From:</strong> ${startLoc}</p>
+                <p><strong>To:</strong> ${endLoc}</p>
+                <p><strong>Base Cost:</strong> ₹${baseCost}</p>
+            `;
+        }
+        
+        // Update cost display
+        function updateCosts() {
+            const subtotal = baseCost * passengerCount;
+            const gst = subtotal * 0.18;
+            const total = subtotal + gst;
+            
+            document.getElementById('baseCost').textContent = `₹${baseCost}`;
+            document.getElementById('passengerCount').textContent = passengerCount;
+            document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('gst').textContent = `₹${gst.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `₹${total.toFixed(2)}`;
+        }
+        
+        // Add passenger functionality
+        document.getElementById('addPassengerBtn').addEventListener('click', function() {
+            passengerCount++;
+            const container = document.getElementById('passengersContainer');
+            
+            const passengerCard = document.createElement('div');
+            passengerCard.className = 'passenger-card bg-slate-800/70 rounded-lg p-6';
+            passengerCard.innerHTML = `
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-blue-300">Passenger ${passengerCount}</h3>
+                    <button type="button" class="remove-passenger text-red-400 hover:text-red-300 font-bold">
+                        Remove
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                        <input type="text" name="passengers[${passengerCount-1}].name" required 
+                               class="w-full px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Phone Number</label>
+                        <input type="tel" name="passengers[${passengerCount-1}].phone" required 
+                               class="w-full px-4 py-2 bg-slate-700 text-white rounded-lg border border-slate-600 focus:border-blue-500 focus:outline-none">
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(passengerCard);
+            updateCosts();
+            
+            // Add remove functionality
+            passengerCard.querySelector('.remove-passenger').addEventListener('click', function() {
+                if (passengerCount > 1) {
+                    passengerCard.remove();
+                    passengerCount--;
+                    updateCosts();
+                }
+            });
+        });
+        
+        // Initialize cost display
+        updateCosts();
+    </script>
+</body>
+</html>

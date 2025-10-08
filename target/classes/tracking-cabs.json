@@ -1,0 +1,31 @@
+[
+  {
+    "id": "C-101",
+    "driverName": "Ramesh Kumar",
+    "licensePlate": "HR01-AB-1234",
+    "status": "On Time",
+    "currentInfo": "Approaching Zirakpur",
+    "origin": "Model Town, Ambala",
+    "destination": "Sector 17, Chandigarh",
+    "eta": "12:15",
+    "schedule": [
+      { "location": "Model Town, Ambala", "scheduledTime": "11:00", "estimatedTime": "11:00", "status": "Departed" },
+      { "location": "Zirakpur", "scheduledTime": "11:55", "estimatedTime": "11:55", "status": "Upcoming" },
+      { "location": "Sector 17, Chandigarh", "scheduledTime": "12:15", "estimatedTime": "12:15", "status": "Upcoming" }
+    ]
+  },
+  {
+    "id": "C-102",
+    "driverName": "Sunita Devi",
+    "licensePlate": "PB02-EF-5566",
+    "status": "Delayed 10 min",
+    "currentInfo": "Stuck in traffic at Dera Bassi",
+    "origin": "Ambala Cantt",
+    "destination": "Elante Mall, Chandigarh",
+    "eta": "14:40",
+    "schedule": [
+      { "location": "Ambala Cantt", "scheduledTime": "13:30", "estimatedTime": "13:30", "status": "Departed" },
+      { "location": "Elante Mall, Chandigarh", "scheduledTime": "14:30", "estimatedTime": "14:40", "status": "Upcoming" }
+    ]
+  }
+]

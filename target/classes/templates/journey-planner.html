@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoConnect - Plan Your Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans flex items-center justify-center p-4">
+
+    <div class="max-w-2xl w-full mx-auto">
+        <div class="text-right mb-4 flex justify-between items-center">
+            <div class="flex gap-4">
+                <a href="/cabs?location=Ambala" class="text-sm text-blue-400 hover:underline">Find Local Cabs</a>
+                <a href="/tracking" class="text-sm text-blue-400 hover:underline">Live Tracking</a>
+            </div>
+            <a href="/wallet" class="text-lg font-semibold text-green-400 hover:text-green-300 transition-colors">My Wallet</a>
+        </div>
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">GoConnect Journey Planner</h1>
+            <p class="text-blue-200 mt-2">Your entire trip, planned with smart rules.</p>
+        </header>
+
+        <div class="bg-slate-800/70 rounded-lg shadow-2xl p-6 sm:p-8">
+            <form action="/plan-journey" method="post" class="space-y-6">
+                <!-- START LOCATION -->
+                <fieldset class="border border-slate-600 rounded-lg p-4">
+                    <legend class="px-2 text-lg font-semibold text-blue-300">Start Location</legend>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" name="startStreet" placeholder="Street" title="Enter street address" class="bg-slate-700/50" required>
+                        <input type="text" name="startLocality" placeholder="Locality" title="Enter locality" class="bg-slate-700/50" required>
+                        <input type="text" name="startCity" value="Ambala" title="Enter city name" class="bg-slate-700/50" required>
+                        <input type="text" name="startState" value="Haryana" title="Enter state name" class="bg-slate-700/50" required>
+                        <input type="text" name="startCountry" value="India" title="Enter country name" class="bg-slate-700/50" required>
+                    </div>
+                </fieldset>
+                <!-- DESTINATION -->
+                 <fieldset class="border border-slate-600 rounded-lg p-4">
+                    <legend class="px-2 text-lg font-semibold text-blue-300">Destination</legend>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" name="destStreet" placeholder="Street" title="Enter destination street" class="bg-slate-700/50" required>
+                        <input type="text" name="destLocality" placeholder="Locality" title="Enter destination locality" class="bg-slate-700/50" required>
+                        <input type="text" name="destCity" placeholder="City" title="Enter destination city" class="bg-slate-700/50" required>
+                        <input type="text" name="destState" placeholder="State" title="Enter destination state" class="bg-slate-700/50" required>
+                        <input type="text" name="destCountry" placeholder="Country" title="Enter destination country" class="bg-slate-700/50" required>
+                    </div>
+                </fieldset>
+                <!-- PASSENGER DETAILS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" name="passengerName" placeholder="Your Name" title="Enter your full name" class="bg-slate-700/50" required>
+                    <input type="tel" name="passengerPhone" placeholder="Your Mobile Number" title="Enter your 10-digit mobile number" class="bg-slate-700/50" required pattern="[0-9]{10}">
+                </div>
+                <div class="pt-4">
+                    <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-lg text-lg px-5 py-3 text-center">Plan My Journey</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

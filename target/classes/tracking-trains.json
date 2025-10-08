@@ -1,0 +1,16 @@
+[
+  {
+    "id": "T-12014",
+    "name": "Amritsar Shatabdi",
+    "status": "Delayed 15 min",
+    "currentInfo": "Departed from Ludhiana Jn",
+    "origin": "Amritsar",
+    "destination": "New Delhi",
+    "eta": "12:15",
+    "schedule": [
+      { "location": "Ludhiana Jn", "scheduledTime": "08:02", "estimatedTime": "08:15", "status": "Departed" },
+      { "location": "Ambala Cantt Jn", "scheduledTime": "09:43", "estimatedTime": "09:58", "status": "Upcoming" },
+      { "location": "New Delhi", "scheduledTime": "12:00", "estimatedTime": "12:15", "status": "Upcoming" }
+    ]
+  }
+]

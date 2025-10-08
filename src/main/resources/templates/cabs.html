@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoConnect - Find Your Ride</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .cab-card { animation: fadeIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-slate-900 min-h-screen text-white font-sans p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-blue-300">GoConnect Rides</h1>
+            <p class="text-blue-200 mt-2">Find shared rides and save more.</p>
+        </header>
+
+        <!-- CONTROLS: Search, Filters, and Sort -->
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4 mb-8 sticky top-4 z-10 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full sm:flex-grow">
+                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                <input type="text" id="searchInput" onkeyup="applyFiltersAndSort()" placeholder="Search by driver, location, or destination..." class="w-full bg-slate-700/50 border border-slate-600 rounded-lg pl-10 pr-4 py-2 text-white placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all"/>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <div class="flex gap-2 justify-center">
+                    <button onclick="filterByType('All')" class="filter-btn bg-blue-600">All</button>
+                    <button onclick="filterByType('Sedan')" class="filter-btn">Sedan</button>
+                    <button onclick="filterByType('SUV')" class="filter-btn">SUV</button>
+                    <button onclick="filterByType('Auto')" class="filter-btn">Auto</button>
+                </div>
+                <select id="sortSelect" onchange="applyFiltersAndSort()" class="bg-slate-700/50 border border-slate-600 rounded-lg px-3 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all">
+                    <option value="default">Sort by</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="cab-listings" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Thymeleaf will generate cards with all carpooling data -->
+            <div th:each="cab : ${cabs}" 
+                 class="cab-card bg-slate-800/70 rounded-lg shadow-lg p-5 flex flex-col transition-transform duration-300 border"
+                 th:classappend="${cab.seatsAvailable == 0 ? 'border-red-500 bg-red-900/20 hover:scale-100 cursor-not-allowed' : 'border-transparent hover:scale-105'}"
+                 th:attr="data-cab-type=${cab.cabType}, data-driver-name=${cab.driverName}, data-price=${cab.pricePerKm}, data-location=${cab.currentLocation}, data-destination=${cab.destination}">
+                
+                <div class="flex justify-between items-start">
+                    <h2 class="text-xl font-bold" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-500' : 'text-blue-300'}" th:text="${cab.driverName}"></h2>
+                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full" th:classappend="${cab.seatsAvailable == 0 ? 'bg-red-500/20 text-red-300' : 'bg-blue-500/20 text-blue-300'}" th:text="${cab.cabType}"></span>
+                </div>
+                <p class="text-sm mt-1" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-600' : 'text-slate-400'}" th:text="${cab.licensePlate}"></p>
+                
+                <div class="mt-4 pt-4 border-t" th:classappend="${cab.seatsAvailable == 0 ? 'border-slate-700' : 'border-slate-700'}">
+                    <div class="flex items-center text-sm">
+                        <svg class="w-5 h-5 mr-2" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-600' : 'text-green-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-500' : 'text-slate-300'}" th:text="${cab.currentLocation}"></span>
+                    </div>
+                    <div class="flex items-center text-sm mt-2">
+                        <svg class="w-5 h-5 mr-2" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-600' : 'text-red-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-500' : 'text-slate-300'}" th:text="${cab.destination}"></span>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t flex justify-between items-center" th:classappend="${cab.seatsAvailable == 0 ? 'border-slate-700' : 'border-slate-700'}">
+                    <!-- NEW: Conditional Seat Display -->
+                    <div th:if="${cab.seatsAvailable > 0}" class="flex items-center">
+                        <svg class="w-5 h-5 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span class="font-semibold text-lg" th:text="${cab.seatsAvailable}"></span>
+                        <span class="text-slate-400 text-sm ml-1" th:text="'/ ' + ${cab.totalSeats} + ' seats left'"></span>
+                    </div>
+                    <div th:if="${cab.seatsAvailable == 0}" class="flex items-center">
+                        <svg class="w-5 h-5 text-red-400 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                        <span class="font-semibold text-lg text-red-400">Full</span>
+                    </div>
+                    <p class="text-lg font-semibold" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-600' : 'text-white'}">
+                        ₹<span th:text="${cab.pricePerKm}"></span>
+                        <span class="text-sm font-normal" th:classappend="${cab.seatsAvailable == 0 ? 'text-slate-600' : 'text-slate-400'}">/ km</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <p id="no-results" class="text-center text-slate-400 mt-8 text-lg hidden">No rides match your criteria.</p>
+    </div>
+
+    <script>
+        // No changes to the JavaScript are needed.
+        const searchInput = document.getElementById('searchInput');
+        const sortSelect = document.getElementById('sortSelect');
+        const cabListings = document.getElementById('cab-listings');
+        const allCabCards = Array.from(cabListings.getElementsByClassName('cab-card'));
+        const noResultsMessage = document.getElementById('no-results');
+        let activeFilterType = 'All';
+
+        function applyFiltersAndSort() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const sortOrder = sortSelect.value;
+
+            const filteredCards = allCabCards.filter(card => {
+                // We only show available cabs unless the 'Full' ones match the search
+                const isFull = card.querySelector('.text-red-400')?.innerText === 'Full';
+                
+                const driverName = card.dataset.driverName.toLowerCase();
+                const cabType = card.dataset.cabType.toLowerCase();
+                const location = card.dataset.location.toLowerCase();
+                const destination = card.dataset.destination.toLowerCase();
+
+                const typeMatch = activeFilterType === 'All' || cabType === activeFilterType.toLowerCase();
+                const searchMatch = driverName.includes(searchTerm) || location.includes(searchTerm) || destination.includes(searchTerm);
+                
+                return typeMatch && searchMatch;
+            });
+
+            filteredCards.sort((a, b) => {
+                const priceA = parseFloat(a.dataset.price);
+                const priceB = parseFloat(b.dataset.price);
+                if (sortOrder === 'price-asc') return priceA - priceB;
+                if (sortOrder === 'price-desc') return priceB - priceA;
+                return 0;
+            });
+
+            cabListings.innerHTML = '';
+            if (filteredCards.length > 0) {
+                filteredCards.forEach(card => cabListings.appendChild(card));
+                noResultsMessage.style.display = 'none';
+            } else {
+                noResultsMessage.style.display = 'block';
+            }
+        }
+        
+        function filterByType(type) {
+            activeFilterType = type;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('bg-blue-600', btn.innerText === type);
+                btn.classList.toggle('bg-slate-700/50', btn.innerText !== type);
+            });
+            applyFiltersAndSort();
+        }
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.add('px-4', 'py-2', 'rounded-lg', 'text-sm', 'font-semibold', 'transition-colors', 'hover:bg-blue-500');
+            if (!btn.classList.contains('bg-blue-600')) btn.classList.add('bg-slate-700/50');
+        });
+    </script>
+</body>
+</html>
+

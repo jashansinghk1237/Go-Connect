@@ -1,0 +1,20 @@
+[
+  {
+    "trainId": "T-12014",
+    "trainName": "Shatabdi Express",
+    "fromStation": "Ambala Cantt (UMB)",
+    "toStation": "New Delhi (NDLS)",
+    "departureTime": "09:30",
+    "arrivalTime": "12:00",
+    "price": 600.0
+  },
+  {
+    "trainId": "T-22448",
+    "trainName": "Vande Bharat",
+    "fromStation": "Chandigarh (CDG)",
+    "toStation": "New Delhi (NDLS)",
+    "departureTime": "15:00",
+    "arrivalTime": "18:00",
+    "price": 900.0
+  }
+]
