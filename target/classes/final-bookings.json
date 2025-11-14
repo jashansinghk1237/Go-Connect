@@ -1,0 +1,574 @@
+[ {
+  "bookingId" : "GC-1760425241150",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1760425261994",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1760425675615",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1760425733408",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1760429638766",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1761814181789",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1761814754629",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1761819427273",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1761819981733",
+  "plan" : null,
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1761820130180",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762506897377",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "j",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762508347087",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762508688034",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762508983542",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1762509027420",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762509564069",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jashan",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762509681679",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, USA",
+    "totalCost" : 82300.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-101",
+      "from" : "gurunanak, Ambala",
+      "to" : "Airport (DEL)",
+      "details" : "Local Cab",
+      "price" : 800.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Flight",
+      "vehicleId" : "F-AI101",
+      "from" : "Delhi (DEL)",
+      "to" : "USA Airport",
+      "details" : "Intl Flight",
+      "price" : 80000.0,
+      "estimatedDeparture" : "05:00 PM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-202",
+      "from" : "USA Airport",
+      "to" : "NK, rajpura",
+      "details" : "Local Cab",
+      "price" : 1500.0,
+      "estimatedDeparture" : "09:00 AM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "j",
+    "phone" : "1234567890"
+  }, {
+    "name" : "jas",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1762535851286",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "jas",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1762541832713",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "j",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1763095216963",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "a",
+    "phone" : "1234567890"
+  } ]
+}, {
+  "bookingId" : "GC-1763095969524",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "rajpura, India",
+    "totalCost" : 1000.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-103",
+      "from" : "gurunanak, Ambala",
+      "to" : "Bus Stand",
+      "details" : "Local Cab",
+      "price" : 120.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Bus",
+      "vehicleId" : "B-101",
+      "from" : "Ambala",
+      "to" : "rajpura",
+      "details" : "Volvo Bus",
+      "price" : 700.0,
+      "estimatedDeparture" : "11:30 AM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-204",
+      "from" : "Bus Stand",
+      "to" : "Chitkara University, rajpura",
+      "details" : "Local Cab",
+      "price" : 180.0,
+      "estimatedDeparture" : "03:00 PM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "Jashan",
+    "phone" : "7988083096"
+  } ]
+}, {
+  "bookingId" : "GC-1763096406119",
+  "plan" : {
+    "startLocation" : "Ambala, India",
+    "finalDestination" : "New York, USA",
+    "totalCost" : 82300.0,
+    "legs" : [ {
+      "legNumber" : 1,
+      "transportType" : "Cab",
+      "vehicleId" : "C-101",
+      "from" : "gurunanak, Ambala",
+      "to" : "Airport (DEL)",
+      "details" : "Local Cab",
+      "price" : 800.0,
+      "estimatedDeparture" : "10:00 AM"
+    }, {
+      "legNumber" : 2,
+      "transportType" : "Flight",
+      "vehicleId" : "F-AI101",
+      "from" : "Delhi (DEL)",
+      "to" : "USA Airport",
+      "details" : "Intl Flight",
+      "price" : 80000.0,
+      "estimatedDeparture" : "05:00 PM"
+    }, {
+      "legNumber" : 3,
+      "transportType" : "Cab",
+      "vehicleId" : "C-202",
+      "from" : "USA Airport",
+      "to" : "2003 , New York",
+      "details" : "Local Cab",
+      "price" : 1500.0,
+      "estimatedDeparture" : "09:00 AM"
+    } ]
+  },
+  "passengers" : [ {
+    "name" : "Jashan",
+    "phone" : "7988083096"
+  } ]
+} ]

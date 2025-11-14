@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Journey</title>
+    <!-- Tailwind CSS (Aap apne project ke hisaab se link kar sakte hain) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0d1117; /* GitHub Dark Background */
+            color: #c9d1d9; /* GitHub Dark Text */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .card { 
+            background-color: #161b22; 
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .form-input {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            border-radius: 6px;
+            padding: 10px 12px;
+            width: 100%;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #2f81f7;
+            box-shadow: 0 0 0 3px rgba(47,129,247,0.3);
+        }
+        .btn {
+            background-color: #238636;
+            color: white;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn:hover { background-color: #2ea043; }
+        .error {
+            background-color: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.4);
+            color: #f85149;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .timeline { list-style: none; padding: 0; position: relative; }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 2px;
+            height: calc(100% - 5px);
+            background-color: #30363d;
+        }
+        .timeline-item { position: relative; padding-left: 25px; margin-bottom: 20px; }
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #30363d;
+            border: 2px solid #161b22;
+        }
+        .timeline-item.departed .timeline-icon { background-color: #2f81f7; }
+        .timeline-item.upcoming .timeline-icon { background-color: #30363d; }
+        .timeline-item.delayed .timeline-icon { background-color: #db6d28; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .status-on-time { background-color: #238636; color: white; }
+        .status-delayed { background-color: #db6d28; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white">Track Your Journey</h1>
+            <p class="text-gray-400">Enter your Booking ID or Vehicle ID to get live updates.</p>
+        </div>
+
+        <!-- Search Form -->
+        <div class="card mb-8">
+            <form th:action="@{/track-vehicle}" method="POST" class="flex flex-col sm:flex-row gap-2">
+                <input type="text" name="trackingId" class="form-input flex-grow" placeholder="Enter Booking ID (e.g., GC-...) or Vehicle ID (e.g., C-101)" required />
+                <button type="submit" class="btn">Track</button>
+            </form>
+        </div>
+
+        <!-- Error Message -->
+        <div th:if="${error}" class="error">
+            <p class="font-bold">Error:</p>
+            <p th:text="${error}">Invalid tracking ID.</p>
+        </div>
+
+        <!-- Tracking Results -->
+        <div th:if="${trackingInfo}" class="card">
+            
+            <!-- Main Info -->
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white" th:text="${trackingInfo.licensePlate() != null ? trackingInfo.licensePlate() : trackingInfo.type()}">12926 - Paschim Express</h2>
+                    <p class="text-gray-400" th:text="${trackingInfo.origin()} + ' → ' + ${trackingInfo.destination()}">Ambala → Rajpura</p>
+                </div>
+                <span th:text="${trackingInfo.status()}" 
+                      th:classappend="${trackingInfo.status() == 'On Time' ? 'status-on-time' : 'status-delayed'}"
+                      class="status-badge">On Time</span>
+            </div>
+            
+            <p class="text-lg text-white mb-6" th:text="${trackingInfo.currentInfo()}">Departed from Ambala Cantt (UMB)</p>
+
+            <!-- Driver/Vehicle Details -->
+            <div th:if="${trackingInfo.driverName() != null}" class="mb-6 p-4 rounded-lg" style="background-color: #0d1117; border: 1px solid #30363d;">
+                <h3 class="text-sm font-semibold text-gray-400 mb-2">DRIVER & VEHICLE DETAILS</h3>
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <span class="text-xs text-gray-400">Driver</span>
+                        <p class="font-medium text-white" th:text="${trackingInfo.driverName()}">Rohan Gupta</p>
+                    </div>
+                     <div>
+                        <span class="text-xs text-gray-400">Phone</span>
+                        <!-- --- FINAL FIX --- -->
+                        <p class="font-medium text-white" th:text="${trackingInfo.driverPhoneNumber()}">9876543210</p>
+                     </div>
+                     <div>
+                        <span class="text-xs text-gray-400">License Plate</span>
+                        <p class="font-medium text-white" th:text="${trackingInfo.licensePlate()}">HR-01-AB-1234</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div>
+                <h3 class="text-sm font-semibold text-gray-400 mb-4">JOURNEY TIMELINE</h3>
+                <ul class="timeline">
+                    <!-- FINAL FIX -->
+                    <li th:each="stop : ${trackingInfo.stops()}" 
+                        th:classappend="${stop.status() == 'Departed' ? 'departed' : (stop.status() == 'Delayed' ? 'delayed' : 'upcoming')}"
+                        class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="flex justify-between items-center">
+                            <!-- FINAL FIX -->
+                            <span class="font-semibold text-white" th:text="${stop.name()}">Ambala Cantt (UMB)</span>
+                            <!-- FINAL FIX -->
+                            <span class="text-sm text-gray-400" th:text="${stop.actualTime()}">12:01 PM</span>
+                        </div>
+                        <p class="text-sm text-gray-400" th:text="'Scheduled: ' + ${stop.scheduledTime()}">Scheduled: 12:00 PM</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div> <!-- /container -->
+
+</body>
+</html>

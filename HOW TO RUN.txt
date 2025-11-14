@@ -1,0 +1,17 @@
+STEP1->
+	open the folder in VS code
+	
+	go to   " cd cab-service "
+	then write " mvn spring-boot:run "
+
+
+
+
+STEP 2 ->
+	after run go to this link
+
+		
+	http://localhost:8080/login
+	
+	username = 123
+	password = 123

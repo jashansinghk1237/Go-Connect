@@ -1,0 +1,28 @@
+[
+  {
+    "id": "B-101",
+    "operatorName": "Haryana Roadways",
+    "busType": "Volvo",
+    "licensePlate": "HR-65-D-9101",
+    "totalSeats": 45,
+    "seatsAvailable": 45,
+    "fromCity": "Ambala City",
+    "toCity": "Delhi",
+    "departureTime": "11:30 AM",
+    "arrivalTime": "03:30 PM",
+    "fare": 700.0
+  },
+  {
+    "id": "B-102",
+    "operatorName": "PRTC Punjab",
+    "busType": "Express",
+    "licensePlate": "PB-11-X-4567",
+    "totalSeats": 50,
+    "seatsAvailable": 50,
+    "fromCity": "Ambala City",
+    "toCity": "Rajpura",
+    "departureTime": "11:00 AM",
+    "arrivalTime": "11:30 AM",
+    "fare": 50.0
+  }
+]

@@ -44,16 +44,19 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-lg" th:text="'Leg ' + ${leg.legNumber} + ': ' + ${leg.transportType}"></h3>
-                            <p class="text-sm text-slate-400" th:text="${leg.from} + ' → ' + ${leg.to}"></p>
+                            <p class="text-sm text-slate-400" th:text="${leg.details}"></p>
                         </div>
                     </div>
-                    <span class="font-bold text-green-300" th:text="'₹' + ${leg.price}"></span>
+                    <div>
+                        <p class="text-lg font-bold text-green-300" th:text="'₹' + ${leg.price}"></p>
+                        <p class="text-xs text-slate-400 text-right" th:text="'Tracking ID: ' + ${leg.vehicleId}"></p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Cab Bookings -->
-        <div th:if="${bookingResult.cabBookings != null and !bookingResult.cabBookings.isEmpty()}" 
+        <div th:if="${bookingResult != null and bookingResult.cabBookings != null and !bookingResult.cabBookings.isEmpty()}" 
              class="bg-slate-800/70 rounded-lg p-6 mb-8">
             <h2 class="text-2xl font-bold text-green-300 mb-4">Cab Bookings</h2>
             <div th:each="cabBooking : ${bookingResult.cabBookings}" class="mb-4 p-4 bg-slate-700/50 rounded-lg">
@@ -115,7 +118,7 @@
                class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-center">
                 📄 Download Ticket (PDF)
             </a>
-            <a href="/tracking" 
+            <a href="/track-vehicle" 
                class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg text-center">
                 🚗 Live Tracking
             </a>

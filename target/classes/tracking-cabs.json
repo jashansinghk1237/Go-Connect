@@ -1,31 +1,37 @@
+
+
+
+
+
 [
   {
     "id": "C-101",
-    "driverName": "Ramesh Kumar",
-    "licensePlate": "HR01-AB-1234",
     "status": "On Time",
-    "currentInfo": "Approaching Zirakpur",
-    "origin": "Model Town, Ambala",
-    "destination": "Sector 17, Chandigarh",
-    "eta": "12:15",
-    "schedule": [
-      { "location": "Model Town, Ambala", "scheduledTime": "11:00", "estimatedTime": "11:00", "status": "Departed" },
-      { "location": "Zirakpur", "scheduledTime": "11:55", "estimatedTime": "11:55", "status": "Upcoming" },
-      { "location": "Sector 17, Chandigarh", "scheduledTime": "12:15", "estimatedTime": "12:15", "status": "Upcoming" }
-    ]
+    "currentInfo": "Driver is on the way to pickup location",
+    "origin": "Ambala City, Haryana",
+    "destination": "Airport (DEL)",
+    "eta": "10:00 AM",
+    "stops": [
+      { "name": "Pickup Location", "scheduledTime": "10:00 AM", "actualTime": "10:00 AM", "status": "Departed" },
+      { "name": "Airport (DEL)", "scheduledTime": "12:30 PM", "actualTime": "12:30 PM", "status": "Upcoming" }
+    ],
+    "driverName": "Rohan Gupta",
+    "licensePlate": "HR-01-AB-1234",
+    "driverPhoneNumber": "9876543210"
   },
   {
     "id": "C-102",
-    "driverName": "Sunita Devi",
-    "licensePlate": "PB02-EF-5566",
-    "status": "Delayed 10 min",
-    "currentInfo": "Stuck in traffic at Dera Bassi",
-    "origin": "Ambala Cantt",
-    "destination": "Elante Mall, Chandigarh",
-    "eta": "14:40",
-    "schedule": [
-      { "location": "Ambala Cantt", "scheduledTime": "13:30", "estimatedTime": "13:30", "status": "Departed" },
-      { "location": "Elante Mall, Chandigarh", "scheduledTime": "14:30", "estimatedTime": "14:40", "status": "Upcoming" }
-    ]
+    "status": "Delayed",
+    "currentInfo": "Slight delay due to traffic",
+    "origin": "Ambala City, Haryana",
+    "destination": "Railway Station",
+    "eta": "11:15 AM",
+    "stops": [
+      { "name": "Pickup Location", "scheduledTime": "11:00 AM", "actualTime": "11:05 AM", "status": "Departed" },
+      { "name": "Railway Station", "scheduledTime": "11:15 AM", "actualTime": "11:20 AM", "status": "Upcoming" }
+    ],
+    "driverName": "Sunil Kumar",
+    "licensePlate": "PB-01-CD-5678",
+    "driverPhoneNumber": "9876543211"
   }
 ]

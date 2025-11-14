@@ -1,0 +1,26 @@
+[
+  {
+    "id": "T-12926",
+    "trainName": "Paschim Express",
+    "trainNumber": "12926",
+    "totalSeats": 800,
+    "seatsAvailable": 800,
+    "fromStation": "Ambala City",
+    "toStation": "Mumbai",
+    "departureTime": "12:00 PM",
+    "arrivalTime": "03:00 PM",
+    "fare": 2000.0
+  },
+  {
+    "id": "T-12011",
+    "trainName": "Kalka Shatabdi",
+    "trainNumber": "12011",
+    "totalSeats": 600,
+    "seatsAvailable": 600,
+    "fromStation": "Ambala City",
+    "toStation": "Delhi",
+    "departureTime": "08:00 AM",
+    "arrivalTime": "10:30 AM",
+    "fare": 850.0
+  }
+]

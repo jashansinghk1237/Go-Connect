@@ -5,6 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.goconnect.cabservice.model.User;
+import com.goconnect.cabservice.repository.UserRepository;
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 

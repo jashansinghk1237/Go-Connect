@@ -1,0 +1,26 @@
+[
+  {
+    "id": "F-AI101",
+    "airline": "Air India",
+    "flightNumber": "AI-101",
+    "totalSeats": 180,
+    "seatsAvailable": 180,
+    "fromAirport": "India",
+    "toAirport": "USA",
+    "departureTime": "05:00 PM",
+    "arrivalTime": "09:00 AM",
+    "fare": 80000.0
+  },
+  {
+    "id": "F-6E204",
+    "airline": "IndiGo",
+    "flightNumber": "6E-204",
+    "totalSeats": 180,
+    "seatsAvailable": 180,
+    "fromAirport": "India",
+    "toAirport": "UK",
+    "departureTime": "07:00 PM",
+    "arrivalTime": "11:00 AM",
+    "fare": 75000.0
+  }
+]
